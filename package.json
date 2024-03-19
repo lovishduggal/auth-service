@@ -4,12 +4,15 @@
   "description": "A user management service",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/server.js"
+    "dev": "node src/server.js",
+    "format:check": "prettier . --check",
+    "format:fix": "prettier . --write"
   },
   "author": "Lovish Duggal <lovishduggal11@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.11.29",
+    "prettier": "3.2.5",
     "typescript": "^5.4.2"
   }
 }
