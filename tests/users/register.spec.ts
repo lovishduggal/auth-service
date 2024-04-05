@@ -2,8 +2,8 @@ import request from 'supertest';
 import app from '../../src/app';
 import { DataSource } from 'typeorm';
 import { AppDataSource } from '../../src/config/data-source';
-import { truncateTables } from '../utils';
 import { User } from '../../src/entity/User';
+import { Roles } from '../../src/constants';
 describe('POST /auth/register', () => {
     let connection: DataSource;
 
@@ -13,7 +13,8 @@ describe('POST /auth/register', () => {
 
     beforeEach(async () => {
         //* Clear the database before each test
-        await truncateTables(connection);
+        await connection.dropDatabase();
+        await connection.synchronize();
     });
 
     afterAll(async () => {
@@ -89,7 +90,6 @@ describe('POST /auth/register', () => {
             const response = await request(app)
                 .post('/auth/register')
                 .send(userData);
-
             //* Assert:
             expect(response.body).toHaveProperty('id');
             const repository = connection.getRepository(User);
@@ -97,6 +97,23 @@ describe('POST /auth/register', () => {
             expect((response.body as Record<string, string>).id).toBe(
                 users[0].id,
             );
+        });
+
+        it('should assign a customer role', async () => {
+            //* Arrange:
+            const userData = {
+                firstName: 'Lovish',
+                lastName: 'Duggal',
+                email: 'lovishduggal11@gmail.com',
+                password: 'password',
+            };
+            //* Act:
+            await request(app).post('/auth/register').send(userData);
+            //* Assert:
+            const userRepository = connection.getRepository(User);
+            const user = await userRepository.find();
+            expect(user[0]).toHaveProperty('role');
+            expect(user[0].role).toBe(Roles.CUSTOMER);
         });
     });
     describe('Fields are missing', () => {});
