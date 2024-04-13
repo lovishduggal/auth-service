@@ -5,6 +5,7 @@ import { AppDataSource } from '../../src/config/data-source';
 import { User } from '../../src/entity/User';
 import { Roles } from '../../src/constants';
 import { isJWT } from '../utils';
+import { RefreshToken } from '../../src/entity/RefreshToken';
 describe('POST /auth/register', () => {
     let connection: DataSource;
 
@@ -167,12 +168,7 @@ describe('POST /auth/register', () => {
             const response = await request(app)
                 .post('/auth/register')
                 .send(userData);
-
-            // interface Headers {
-            //     ['set-cookie']: string[];
-            // }
             //* Assert:
-
             let accessToken = null;
             let refreshToken = null;
             const cookies =
@@ -190,6 +186,31 @@ describe('POST /auth/register', () => {
             expect(refreshToken).not.toBeNull();
             expect(isJWT(accessToken)).toBeTruthy();
             expect(isJWT(refreshToken)).toBeTruthy();
+        });
+
+        it('should store the refresh token in the database', async () => {
+            //* Arrange:
+            const userData = {
+                firstName: 'Lovish',
+                lastName: 'Duggal',
+                email: 'lovishduggal121@gmail.com',
+                password: 'password',
+            };
+            //* Act:
+            const response = await request(app)
+                .post('/auth/register')
+                .send(userData);
+            //* Assert:
+            const refreshTokenRepo = connection.getRepository(RefreshToken);
+
+            const tokens = await refreshTokenRepo
+                .createQueryBuilder('refreshToken')
+                .where('refreshToken.userId = :userId', {
+                    userId: (response.body as Record<string, string>).id,
+                })
+                .getMany();
+
+            expect(tokens).toHaveLength(1);
         });
     });
     describe('Fields are missing', () => {
