@@ -3,6 +3,9 @@ import { DataSource } from 'typeorm';
 import { AppDataSource } from '../../src/config/data-source';
 import { User } from '../../src/entity/User';
 import { Roles } from '../../src/constants';
+import request from 'supertest';
+import app from '../../src/app';
+import { isJWT } from '../utils';
 
 describe('POST /auth/login', () => {
     let connection: DataSource;
@@ -40,6 +43,27 @@ describe('POST /auth/login', () => {
                 role: Roles.CUSTOMER,
             });
             //* Act:
+            const response = await request(app)
+                .post('/auth/login')
+                .send({ email: userData.email, password: userData.password });
+
+            let accessToken = null;
+            let refreshToken = null;
+            const cookies =
+                (response.headers['set-cookie'] as unknown as string[]) || [];
+
+            cookies.forEach((cookie) => {
+                if (cookie.startsWith('accessToken=')) {
+                    accessToken = cookie.split(';')[0].split('=')[1];
+                }
+                if (cookie.startsWith('refreshToken=')) {
+                    refreshToken = cookie.split(';')[0].split('=')[1];
+                }
+            });
+            expect(accessToken).not.toBeNull();
+            expect(refreshToken).not.toBeNull();
+            expect(isJWT(accessToken)).toBeTruthy();
+            expect(isJWT(refreshToken)).toBeTruthy();
         });
     });
 });
