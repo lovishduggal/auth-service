@@ -1,3 +1,4 @@
+import { AuthRequest } from './../types/index';
 import { UserService } from './../services/UserService';
 import express, { NextFunction, Request, Response } from 'express';
 import { AuthController } from '../controllers/AuthController';
@@ -9,6 +10,7 @@ import { TokenService } from '../services/TokenService';
 import { RefreshToken } from '../entity/RefreshToken';
 import loginValidator from '../validators/login-validator';
 import { CredentialService } from '../services/CredentialService';
+import authenticate from '../middlewares/authenticate';
 
 const router = express.Router();
 const userRepository = AppDataSource.getRepository(User);
@@ -36,8 +38,8 @@ router.post(
         authController.login(req, res, next),
 );
 
-router.get('/self', (req: Request, res: Response) =>
-    authController.self(req, res),
+router.get('/self', authenticate, (req: Request, res: Response) =>
+    authController.self(req as AuthRequest, res),
 );
 
 export default router;
