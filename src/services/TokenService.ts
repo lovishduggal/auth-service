@@ -49,4 +49,8 @@ export class TokenService {
         });
         return newRefreshToken;
     }
+
+    async findById(id: number) {
+        return await this.refreshTokenRepository.findOne({ where: { id } });
+    }
 }
