@@ -50,7 +50,7 @@ export class TokenService {
         return newRefreshToken;
     }
 
-    async findById(id: number) {
-        return await this.refreshTokenRepository.findOne({ where: { id } });
+    async deleteRefreshToken(tokenId: number) {
+        return await this.refreshTokenRepository.delete({ id: tokenId });
     }
 }

@@ -157,36 +157,49 @@ export class AuthController {
     }
 
     async refresh(req: AuthRequest, res: Response, next: NextFunction) {
-        //* Firstly, I will get userData using refresh token
         try {
-            const refreshTokenExits = await this.tokenService.findById(
-                Number(req.auth.id),
-            );
-            if (!refreshTokenExits) {
-                const error = createHttpError(400, 'Try to login again');
+            const payload: JwtPayload = {
+                sub: String(req.auth.sub),
+                role: req.auth.role,
+            };
+            const accessToken = this.tokenService.generateAccessToken(payload);
+
+            const user = await this.userService.findById(Number(req.auth.sub));
+            if (!user) {
+                const error = createHttpError(
+                    400,
+                    "user with toke couldn't find",
+                );
                 next(error);
                 return;
             }
 
-            const user = await this.userService.findById(Number(req.auth.sub));
-            if (!user) {
-                const error = createHttpError(400, 'Try to login again');
-                next(error);
-                return;
-            }
-            const payload: JwtPayload = {
-                sub: String(user.id),
-                role: user.role,
-            };
-            const accessToken = this.tokenService.generateAccessToken(payload);
+            //* Persist the refresh token:
+            const newRefreshToken =
+                await this.tokenService.persistRefreshToken(user);
+            //* Delete old refresh token: Concept of rotation
+            await this.tokenService.deleteRefreshToken(Number(req.auth.id));
+
+            const refreshToken = this.tokenService.generateRefreshToken({
+                ...payload,
+                id: newRefreshToken.id,
+            });
+
             res.cookie('accessToken', accessToken, {
                 domain: 'localhost',
                 sameSite: 'strict',
                 maxAge: 1000 * 60 * 60, // 1h
                 httpOnly: true,
             });
-            this.logger.info('User has been logged in', { id: user.id });
 
+            res.cookie('refreshToken', refreshToken, {
+                domain: 'localhost',
+                sameSite: 'strict',
+                maxAge: 1000 * 60 * 60 * 24 * 365, // 1year
+                httpOnly: true,
+            });
+
+            this.logger.info('User has been logged in', { id: user.id });
             return res.status(200).json({ ...user, password: undefined });
         } catch (err) {
             return next(err);
