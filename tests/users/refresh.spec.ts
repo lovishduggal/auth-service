@@ -7,7 +7,7 @@ import request from 'supertest';
 import app from '../../src/app';
 import { isJWT } from '../utils/index';
 
-describe('POST /auth/login', () => {
+describe('POST /auth/refresh', () => {
     let connection: DataSource;
 
     beforeAll(async () => {
@@ -23,9 +23,8 @@ describe('POST /auth/login', () => {
     afterAll(async () => {
         await connection.destroy();
     });
-
     describe('Given all fields', () => {
-        it('should login the user', async () => {
+        it('should return access token if refresh token is valid', async () => {
             //* Arrange:
             const userData = {
                 firstName: 'Lovish',
@@ -42,13 +41,29 @@ describe('POST /auth/login', () => {
                 password: hashedPassword,
                 role: Roles.CUSTOMER,
             });
-            //* Act:
-            const response = await request(app)
+
+            //* Simulate login to get refresh token
+            const loginResponse = await request(app)
                 .post('/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
-            let accessToken = null;
             let refreshToken = null;
+            const cookiesOfLoginResponse =
+                (loginResponse.headers['set-cookie'] as unknown as string[]) ||
+                [];
+
+            cookiesOfLoginResponse.forEach((cookie) => {
+                if (cookie.startsWith('refreshToken=')) {
+                    refreshToken = cookie.split(';')[0].split('=')[1];
+                }
+            });
+
+            //* Act:
+            const response = await request(app)
+                .get('/auth/refresh')
+                .set('Cookie', `refreshToken=${refreshToken}`);
+
+            let accessToken = null;
             const cookies =
                 (response.headers['set-cookie'] as unknown as string[]) || [];
 
@@ -56,39 +71,12 @@ describe('POST /auth/login', () => {
                 if (cookie.startsWith('accessToken=')) {
                     accessToken = cookie.split(';')[0].split('=')[1];
                 }
-                if (cookie.startsWith('refreshToken=')) {
-                    refreshToken = cookie.split(';')[0].split('=')[1];
-                }
             });
+
+            //* Assert:
+            expect(response.statusCode).toBe(200);
             expect(accessToken).not.toBeNull();
-            expect(refreshToken).not.toBeNull();
             expect(isJWT(accessToken)).toBeTruthy();
-            expect(isJWT(refreshToken)).toBeTruthy();
-        });
-
-        it('should return the 400 if email or password is wrong', async () => {
-            //* Arrange:
-            const userData = {
-                firstName: 'Lovish',
-                lastName: 'Duggal',
-                email: 'lovishduggal121@gmail.com',
-                password: 'password',
-            };
-
-            const hashedPassword = await bcrypt.hash(userData.password, 10);
-
-            const userRepository = connection.getRepository(User);
-            await userRepository.save({
-                ...userData,
-                password: hashedPassword,
-                role: Roles.CUSTOMER,
-            });
-            //* Act:
-            const response = await request(app)
-                .post('/auth/login')
-                .send({ email: userData.email, password: 'wrongPassword' });
-
-            expect(response.statusCode).toBe(400);
         });
     });
 });
