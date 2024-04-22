@@ -5,7 +5,7 @@ import { User } from '../../src/entity/User';
 import { Roles } from '../../src/constants';
 import request from 'supertest';
 import app from '../../src/app';
-import { isJWT } from '../utils';
+import { isJWT } from '../utils/index';
 
 describe('POST /auth/login', () => {
     let connection: DataSource;
