@@ -4,6 +4,7 @@ import { ICreateTenantRequest } from '../types';
 import { NextFunction } from 'express-serve-static-core';
 import { Logger } from 'winston';
 import { validationResult } from 'express-validator';
+import createHttpError from 'http-errors';
 
 export class TenantController {
     constructor(
@@ -35,6 +36,28 @@ export class TenantController {
                 count: tenants.length,
             });
             return res.status(200).json(tenants);
+        } catch (err) {
+            return next(err);
+        }
+    }
+
+    async getOne(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+        const tenantId = req.params.id;
+        if (isNaN(Number(tenantId))) {
+            next(createHttpError(400, 'Invalid url param'));
+            return;
+        }
+
+        try {
+            const tenant = await this.tenantService.getById(Number(tenantId));
+
+            if (!tenant) {
+                next(createHttpError(400, 'Tenant does not exist.'));
+                return;
+            }
+
+            this.logger.info(`Tenant has been fetched`, { id: tenant.id });
+            return res.status(200).json(tenant);
         } catch (err) {
             return next(err);
         }
