@@ -15,4 +15,12 @@ export class TenantService {
     async getById(tenantId: number) {
         return await this.tenantRepository.findOne({ where: { id: tenantId } });
     }
+
+    async update(tenantId: number, tenantData: ITenant) {
+        return await this.tenantRepository.update(tenantId, tenantData);
+    }
+
+    async deleteById(tenantId: number) {
+        return await this.tenantRepository.delete(tenantId);
+    }
 }

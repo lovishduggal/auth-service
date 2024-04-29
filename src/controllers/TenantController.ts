@@ -62,4 +62,55 @@ export class TenantController {
             return next(err);
         }
     }
+
+    async update(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+        //* Validation:
+        const result = validationResult(req);
+        if (!result.isEmpty()) {
+            return res.status(400).json({ errors: result.array() });
+        }
+
+        const { name, address } = req.body;
+
+        const tenantId = req.params.id;
+        if (isNaN(Number(tenantId))) {
+            next(createHttpError(400, 'Invalid url param'));
+            return;
+        }
+
+        this.logger.debug(`Updating tenant`, req.body);
+
+        try {
+            await this.tenantService.update(Number(tenantId), {
+                name,
+                address,
+            });
+
+            this.logger.info(`Tenant has been updated`, { id: tenantId });
+
+            return res.status(200).json({ id: Number(tenantId) });
+        } catch (err) {
+            return next(err);
+        }
+    }
+
+    async delete(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+        const tenantId = req.params.id;
+        if (isNaN(Number(tenantId))) {
+            next(createHttpError(400, 'Invalid url param'));
+            return;
+        }
+
+        this.logger.debug(`deleting tenant`, req.body);
+
+        try {
+            await this.tenantService.deleteById(Number(tenantId));
+
+            this.logger.info(`Tenant has been deleted`, { id: tenantId });
+
+            return res.status(200).json({ id: Number(tenantId) });
+        } catch (err) {
+            return next(err);
+        }
+    }
 }
