@@ -1,4 +1,4 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { UserService } from '../services/UserService';
 import { CreateUserRequest } from '../types';
 import { Roles } from '../constants';
@@ -33,11 +33,28 @@ export class UserController {
         }
     }
 
-    async getAll(req: CreateUserRequest, res: Response, next: NextFunction) {
+    async getAll(req: Request, res: Response, next: NextFunction) {
         try {
             const users = await this.userService.getAll();
             this.logger.info('All users have been fetched');
             return res.status(200).json(users);
+        } catch (err) {
+            return next(err);
+        }
+    }
+
+    async getOne(req: Request, res: Response, next: NextFunction) {
+        const userId = req.params.id;
+
+        if (isNaN(Number(userId))) {
+            next(createHttpError(400, 'Invalid url param.'));
+            return;
+        }
+
+        try {
+            const user = await this.userService.findById(Number(userId));
+            this.logger.info('User have been fetched');
+            return res.status(200).json(user);
         } catch (err) {
             return next(err);
         }
