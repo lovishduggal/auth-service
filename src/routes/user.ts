@@ -8,6 +8,7 @@ import { UserController } from '../controllers/UserController';
 import { User } from '../entity/User';
 import createUserValidator from '../validators/create-user-validator';
 import logger from '../config/logger';
+import { UpdateUserRequest } from '../types';
 
 const router = express.Router();
 const userRepository = AppDataSource.getRepository(User);
@@ -33,6 +34,13 @@ router.get(
     [authenticate, canAccess([Roles.ADMIN])],
     (req: Request, res: Response, next: NextFunction) =>
         userController.getOne(req, res, next),
+);
+
+router.patch(
+    '/:id',
+    [authenticate, canAccess([Roles.ADMIN])],
+    (req: UpdateUserRequest, res: Response, next: NextFunction) =>
+        userController.update(req, res, next),
 );
 
 export default router;

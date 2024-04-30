@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { UserService } from '../services/UserService';
-import { CreateUserRequest } from '../types';
+import { CreateUserRequest, UpdateUserRequest } from '../types';
 import { Roles } from '../constants';
 import { validationResult } from 'express-validator';
 import createHttpError from 'http-errors';
@@ -55,6 +55,38 @@ export class UserController {
             const user = await this.userService.findById(Number(userId));
             this.logger.info('User have been fetched');
             return res.status(200).json(user);
+        } catch (err) {
+            return next(err);
+        }
+    }
+
+    async update(req: UpdateUserRequest, res: Response, next: NextFunction) {
+        // Validation
+        const result = validationResult(req);
+        if (!result.isEmpty()) {
+            return res.status(400).json({ errors: result.array() });
+        }
+
+        const { firstName, lastName, role, email } = req.body;
+
+        const userId = req.params.id;
+
+        if (isNaN(Number(userId))) {
+            next(createHttpError(400, 'Invalid url param.'));
+            return;
+        }
+
+        this.logger.debug('Request for updating a user', req.body);
+
+        try {
+            await this.userService.update(Number(userId), {
+                firstName,
+                lastName,
+                role,
+                email,
+            });
+            this.logger.info('User have been updated', { id: userId });
+            return res.status(200).json({ id: Number(userId) });
         } catch (err) {
             return next(err);
         }

@@ -1,6 +1,6 @@
 import { Repository } from 'typeorm';
 import { User } from '../entity/User';
-import { UserData } from '../types';
+import { LimitedUserData, UserData } from '../types';
 import createHttpError from 'http-errors';
 import bcrypt from 'bcrypt';
 
@@ -48,5 +48,17 @@ export class UserService {
 
     async getAll() {
         return await this.userRepository.find();
+    }
+
+    async update(
+        userId: number,
+        { firstName, lastName, role, email }: LimitedUserData,
+    ) {
+        return await this.userRepository.update(userId, {
+            firstName,
+            lastName,
+            role,
+            email,
+        });
     }
 }
