@@ -61,4 +61,8 @@ export class UserService {
             email,
         });
     }
+
+    async deleteById(userId: number) {
+        return await this.userRepository.delete(userId);
+    }
 }
