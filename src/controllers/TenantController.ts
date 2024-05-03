@@ -73,12 +73,13 @@ export class TenantController {
         const { name, address } = req.body;
 
         const tenantId = req.params.id;
+
         if (isNaN(Number(tenantId))) {
             next(createHttpError(400, 'Invalid url param'));
             return;
         }
 
-        this.logger.debug(`Updating tenant`, req.body);
+        this.logger.debug(`Request for updating a tenant`, req.body);
 
         try {
             await this.tenantService.update(Number(tenantId), {
