@@ -55,8 +55,14 @@ export class UserController {
 
         try {
             const user = await this.userService.findById(Number(userId));
+
+            if (!user) {
+                next(createHttpError(400, 'User does not exist.'));
+                return;
+            }
+
             this.logger.info('User have been fetched');
-            return res.status(200).json(user);
+            return res.status(200).json({ id: user.id });
         } catch (err) {
             return next(err);
         }
