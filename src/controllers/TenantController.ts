@@ -41,7 +41,7 @@ export class TenantController {
         }
     }
 
-    async getOne(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+    async getOne(req: Request, res: Response, next: NextFunction) {
         const tenantId = req.params.id;
         if (isNaN(Number(tenantId))) {
             next(createHttpError(400, 'Invalid url param'));
