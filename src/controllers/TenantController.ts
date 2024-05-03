@@ -95,7 +95,7 @@ export class TenantController {
         }
     }
 
-    async delete(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+    async delete(req: Request, res: Response, next: NextFunction) {
         const tenantId = req.params.id;
         if (isNaN(Number(tenantId))) {
             next(createHttpError(400, 'Invalid url param'));
