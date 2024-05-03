@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { TenantService } from '../services/TenantService';
 import { ICreateTenantRequest } from '../types';
 import { NextFunction } from 'express-serve-static-core';
@@ -29,7 +29,7 @@ export class TenantController {
         }
     }
 
-    async getAll(req: ICreateTenantRequest, res: Response, next: NextFunction) {
+    async getAll(req: Request, res: Response, next: NextFunction) {
         try {
             const tenants = await this.tenantService.getAll();
             this.logger.info(`Tenant list has been fetched`, {
