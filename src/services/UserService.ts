@@ -52,14 +52,21 @@ export class UserService {
 
     async update(
         userId: number,
-        { firstName, lastName, role, email }: LimitedUserData,
+        { firstName, lastName, role }: LimitedUserData,
     ) {
-        return await this.userRepository.update(userId, {
-            firstName,
-            lastName,
-            role,
-            email,
-        });
+        try {
+            return await this.userRepository.update(userId, {
+                firstName,
+                lastName,
+                role,
+            });
+        } catch (err) {
+            const error = createHttpError(
+                500,
+                'Failed to update the user in the database',
+            );
+            throw error;
+        }
     }
 
     async deleteById(userId: number) {
