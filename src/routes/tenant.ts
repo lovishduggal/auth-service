@@ -29,7 +29,7 @@ router.get('/', (req: Request, res: Response, next: NextFunction) =>
 
 router.get(
     '/:id',
-    authenticate,
+    [authenticate, canAccess([Roles.ADMIN])],
     (req: Request, res: Response, next: NextFunction) =>
         tenantController.getOne(req, res, next),
 );
