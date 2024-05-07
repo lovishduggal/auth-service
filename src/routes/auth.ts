@@ -31,13 +31,13 @@ const authController = new AuthController(
     tokenService,
     credentialService,
 );
-router.post('/register', registerValidator, (async (
-    req: Request,
-    res: Response,
-    next: NextFunction,
-) => {
-    await authController.register(req, res, next);
-}) as RequestHandler);
+router.post(
+    '/register',
+    registerValidator,
+    (req: Request, res: Response, next: NextFunction) => {
+        authController.register(req, res, next) as unknown as RequestHandler;
+    },
+);
 
 router.post(
     '/login',
