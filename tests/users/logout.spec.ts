@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { DataSource } from 'typeorm';
 import { AppDataSource } from '../../src/config/data-source';
 import { User } from '../../src/entity/User';
@@ -58,7 +58,7 @@ describe('POST /auth/login', () => {
                 .post('/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
-            let refreshToken = null;
+            let refreshToken: null | string = null;
             const cookies =
                 (response.headers['set-cookie'] as unknown as string[]) || [];
             cookies.forEach((cookie) => {
@@ -76,8 +76,8 @@ describe('POST /auth/login', () => {
                 )
                 .send();
 
-            let accessTokenLogoutResponse = null;
-            let refreshTokenLogoutResponse = null;
+            let accessTokenLogoutResponse: null | string = null;
+            let refreshTokenLogoutResponse: null | string = null;
             const logoutResponseCookies =
                 (logoutResponse.headers['set-cookie'] as unknown as string[]) ||
                 [];

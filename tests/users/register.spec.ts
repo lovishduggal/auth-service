@@ -135,7 +135,7 @@ describe('POST /auth/register', () => {
             });
             expect(users[0].password).not.toBe(userData.password);
             expect(users[0].password).toHaveLength(60);
-            expect(users[0].password).toMatch(/^\$2b\$\d+\$/);
+            expect(users[0].password).toMatch(/^\$2[a|b]\$\d+\$/);
         });
 
         it('should return 400 status code if email is already exits', async () => {
@@ -171,8 +171,8 @@ describe('POST /auth/register', () => {
                 .post('/auth/register')
                 .send(userData);
             //* Assert:
-            let accessToken = null;
-            let refreshToken = null;
+            let accessToken: null | string = null;
+            let refreshToken: null | string = null;
             const cookies =
                 (response.headers['set-cookie'] as unknown as string[]) || [];
 

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { DataSource } from 'typeorm';
 import { AppDataSource } from '../../src/config/data-source';
 import { User } from '../../src/entity/User';
@@ -47,7 +47,7 @@ describe('POST /auth/refresh', () => {
                 .post('/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
-            let refreshToken = null;
+            let refreshToken: null | string = null;
             const cookiesOfLoginResponse =
                 (loginResponse.headers['set-cookie'] as unknown as string[]) ||
                 [];
@@ -63,7 +63,7 @@ describe('POST /auth/refresh', () => {
                 .get('/auth/refresh')
                 .set('Cookie', `refreshToken=${refreshToken}`);
 
-            let accessToken = null;
+            let accessToken: null | string = null;
             const cookies =
                 (response.headers['set-cookie'] as unknown as string[]) || [];
 
