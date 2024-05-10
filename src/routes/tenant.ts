@@ -1,4 +1,9 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express, {
+    NextFunction,
+    Request,
+    RequestHandler,
+    Response,
+} from 'express';
 import { TenantController } from '../controllers/TenantController';
 import { TenantService } from '../services/TenantService';
 import { AppDataSource } from '../config/data-source';
@@ -20,18 +25,20 @@ router.post(
     [authenticate, canAccess([Roles.ADMIN])],
     tenantValidator,
     (req: Request, res: Response, next: NextFunction) =>
-        tenantController.create(req, res, next),
+        tenantController.create(req, res, next) as unknown as RequestHandler,
 );
 
-router.get('/', (req: Request, res: Response, next: NextFunction) =>
-    tenantController.getAll(req, res, next),
+router.get(
+    '/',
+    (req: Request, res: Response, next: NextFunction) =>
+        tenantController.getAll(req, res, next) as unknown as RequestHandler,
 );
 
 router.get(
     '/:id',
     [authenticate, canAccess([Roles.ADMIN])],
     (req: Request, res: Response, next: NextFunction) =>
-        tenantController.getOne(req, res, next),
+        tenantController.getOne(req, res, next) as unknown as RequestHandler,
 );
 
 router.patch(
@@ -39,14 +46,14 @@ router.patch(
     [authenticate, canAccess([Roles.ADMIN])],
     tenantValidator,
     (req: Request, res: Response, next: NextFunction) =>
-        tenantController.update(req, res, next),
+        tenantController.update(req, res, next) as unknown as RequestHandler,
 );
 
 router.delete(
     '/:id',
     [authenticate, canAccess([Roles.ADMIN])],
     (req: Request, res: Response, next: NextFunction) =>
-        tenantController.delete(req, res, next),
+        tenantController.delete(req, res, next) as unknown as RequestHandler,
 );
 
 export default router;
