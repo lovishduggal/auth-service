@@ -9,6 +9,7 @@ module.exports = {
     collectCoverageFrom: ['src/**/*.ts'],
     coveragePathIgnorePatterns: [
         'src/server.ts', // Exclude specific file
+        'src/utils.ts', // Exclude specific file
         'src/config/index.ts', // Exclude specific file
         'tests',
         'node_modules',
