@@ -31,7 +31,7 @@ jobs:
             - name: build-ts
               run: npm run build
             - name: SonarCloud Scan
-              uses: SonarSource/sonarcloud-github-action@master
+              uses: SonarSource/sonarcloud-github-action@v1.6
               with:
                   args: >
                       -Dsonar.coverage.exclusions=**/*.test.js
