@@ -6,12 +6,12 @@ module.exports = {
     verbose: true,
     collectCoverage: true,
     coverageProvider: 'v8',
-    collectCoverageFrom: [
-        'src/**/*.ts',
-        '!src/server.ts',
-        '!src/config/index.ts',
-        '!tests/**',
-        '!**/node_modules/**',
+    collectCoverageFrom: ['src/**/*.ts'],
+    coveragePathIgnorePatterns: [
+        'src/server.ts', // Exclude specific file
+        'src/config/index.ts', // Exclude specific file
+        'tests',
+        'node_modules',
     ],
     coverageReporters: ['text', 'html', 'lcov'],
 };
