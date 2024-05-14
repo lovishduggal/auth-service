@@ -8,8 +8,8 @@ module.exports = {
     coverageProvider: 'v8',
     collectCoverageFrom: [
         'src/**/*.ts',
-        '!src/*.ts', // Exclude specific file
-        '!src/config/index.ts', // Exclude specific file
+        '!src/server.ts',
+        '!src/config/index.ts',
         '!tests/**',
         '!**/node_modules/**',
     ],
