@@ -24,9 +24,9 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.use('/auth', authRouter);
-app.use('/tenants', tenantRouter);
-app.use('/users', userRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/tenants', tenantRouter);
+app.use('/api/users', userRouter);
 
 app.use(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
