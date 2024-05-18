@@ -6,7 +6,7 @@ import createJWKSMock from 'mock-jwks';
 import { User } from '../../src/entity/User';
 import { Roles } from '../../src/constants';
 
-describe('GET /auth/self', () => {
+describe('GET /api/auth/self', () => {
     let connection: DataSource;
     let jwks: ReturnType<typeof createJWKSMock>;
 
@@ -37,7 +37,7 @@ describe('GET /auth/self', () => {
                 role: Roles.CUSTOMER,
             });
             const response = await request(app)
-                .get('/auth/self')
+                .get('/api/auth/self')
                 .set('Cookie', [`accessToken=${accessToken}`])
                 .send();
             expect(response.status).toBe(200);
@@ -61,7 +61,7 @@ describe('GET /auth/self', () => {
             });
 
             const response = await request(app)
-                .get('/auth/self')
+                .get('/api/auth/self')
                 .set('Cookie', [`accessToken=${accessToken}`])
                 .send();
 
@@ -86,7 +86,7 @@ describe('GET /auth/self', () => {
             });
 
             const response = await request(app)
-                .get('/auth/self')
+                .get('/api/auth/self')
                 .set('Cookie', [`accessToken=${accessToken}`])
                 .send();
 
@@ -107,7 +107,7 @@ describe('GET /auth/self', () => {
                 ...userData,
                 role: Roles.CUSTOMER,
             });
-            const response = await request(app).get('/auth/self').send();
+            const response = await request(app).get('/api/auth/self').send();
 
             expect(response.statusCode).toBe(401);
         });

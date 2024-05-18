@@ -7,7 +7,7 @@ import request from 'supertest';
 import app from '../../src/app';
 import { isJWT } from '../utils/index';
 
-describe('POST /auth/refresh', () => {
+describe('POST /api/auth/refresh', () => {
     let connection: DataSource;
 
     beforeAll(async () => {
@@ -44,7 +44,7 @@ describe('POST /auth/refresh', () => {
 
             //* Simulate login to get refresh token
             const loginResponse = await request(app)
-                .post('/auth/login')
+                .post('/api/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
             let refreshToken: null | string = null;
@@ -60,7 +60,7 @@ describe('POST /auth/refresh', () => {
 
             //* Act:
             const response = await request(app)
-                .get('/auth/refresh')
+                .get('/api/auth/refresh')
                 .set('Cookie', `refreshToken=${refreshToken}`);
 
             let accessToken: null | string = null;

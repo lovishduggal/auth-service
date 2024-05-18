@@ -6,7 +6,7 @@ import createJWKSMock from 'mock-jwks';
 import { Roles } from '../../src/constants';
 import { User } from '../../src/entity/User';
 
-describe('POST /users', () => {
+describe('POST /api/users', () => {
     let connection: DataSource;
     let jwks: ReturnType<typeof createJWKSMock>;
 
@@ -37,16 +37,29 @@ describe('POST /users', () => {
                 role: Roles.ADMIN,
             });
 
+            const tenantData = {
+                name: 'tenat name',
+                address: 'tenant address',
+            };
+
+            const {
+                body: { id },
+            } = await request(app)
+                .post('/api/tenants')
+                .set('Cookie', [`accessToken=${adminToken}`])
+                .send(tenantData);
+
             const userData = {
                 firstName: 'Lovish',
                 lastName: 'Duggal',
                 email: 'lovishduggal121@gmail.com',
                 password: 'password',
-                tenantId: 1,
+                role: Roles.MANAGER,
+                tenantId: id,
             };
 
             await request(app)
-                .post('/users')
+                .post('/api/users')
                 .set('Cookie', [`accessToken=${adminToken}`])
                 .send(userData);
 
@@ -63,16 +76,29 @@ describe('POST /users', () => {
                 role: Roles.ADMIN,
             });
 
+            const tenantData = {
+                name: 'tenat name',
+                address: 'tenant address',
+            };
+
+            const {
+                body: { id },
+            } = await request(app)
+                .post('/api/tenants')
+                .set('Cookie', [`accessToken=${adminToken}`])
+                .send(tenantData);
+
             const userData = {
                 firstName: 'Lovish',
                 lastName: 'Duggal',
                 email: 'lovishduggal121@gmail.com',
                 password: 'password',
-                tenantId: 1,
+                role: Roles.MANAGER,
+                tenantId: id,
             };
 
             await request(app)
-                .post('/users')
+                .post('/api/users')
                 .set('Cookie', [`accessToken=${adminToken}`])
                 .send(userData);
 
