@@ -6,7 +6,7 @@ import { User } from '../../src/entity/User';
 import { Roles } from '../../src/constants';
 import { isJWT } from '../utils';
 import { RefreshToken } from '../../src/entity/RefreshToken';
-describe('POST /auth/register', () => {
+describe('POST /api/auth/register', () => {
     let connection: DataSource;
 
     beforeAll(async () => {
@@ -36,7 +36,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             expect(response.statusCode).toBe(201);
@@ -52,7 +52,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             expect(response.headers['content-type']).toEqual(
@@ -69,7 +69,7 @@ describe('POST /auth/register', () => {
                 password: 'password',
             };
             //* Act:
-            await request(app).post('/auth/register').send(userData);
+            await request(app).post('/api/auth/register').send(userData);
 
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -90,7 +90,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             expect(response.body).toHaveProperty('id');
@@ -110,7 +110,7 @@ describe('POST /auth/register', () => {
                 password: 'password',
             };
             //* Act:
-            await request(app).post('/auth/register').send(userData);
+            await request(app).post('/api/auth/register').send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
             const users = await userRepository.find();
@@ -127,7 +127,7 @@ describe('POST /auth/register', () => {
                 password: 'password',
             };
             //* Act:
-            await request(app).post('/auth/register').send(userData);
+            await request(app).post('/api/auth/register').send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
             const users = await userRepository.find({
@@ -150,7 +150,7 @@ describe('POST /auth/register', () => {
             await userRepository.save({ ...userData, role: Roles.CUSTOMER });
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             const users = await userRepository.find();
             //* Assert:
@@ -168,7 +168,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             let accessToken: null | string = null;
@@ -200,7 +200,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const refreshTokenRepo = connection.getRepository(RefreshToken);
@@ -226,7 +226,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -245,7 +245,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -264,7 +264,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -283,7 +283,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -302,7 +302,7 @@ describe('POST /auth/register', () => {
             };
             //* Act:
             const response = await request(app)
-                .post('/auth/register')
+                .post('/api/auth/register')
                 .send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
@@ -321,7 +321,7 @@ describe('POST /auth/register', () => {
                 password: 'password',
             };
             //* Act:
-            await request(app).post('/auth/register').send(userData);
+            await request(app).post('/api/auth/register').send(userData);
             //* Assert:
             const userRepository = connection.getRepository(User);
             const users = await userRepository.find();

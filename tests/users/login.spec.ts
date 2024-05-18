@@ -7,7 +7,7 @@ import request from 'supertest';
 import app from '../../src/app';
 import { isJWT } from '../utils/index';
 
-describe('POST /auth/login', () => {
+describe('POST /api/auth/login', () => {
     let connection: DataSource;
 
     beforeAll(async () => {
@@ -44,7 +44,7 @@ describe('POST /auth/login', () => {
             });
             //* Act:
             const response = await request(app)
-                .post('/auth/login')
+                .post('/api/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
             let accessToken: null | string = null;
@@ -85,7 +85,7 @@ describe('POST /auth/login', () => {
             });
             //* Act:
             const response = await request(app)
-                .post('/auth/login')
+                .post('/api/auth/login')
                 .send({ email: userData.email, password: 'wrongPassword' });
 
             expect(response.statusCode).toBe(400);

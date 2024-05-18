@@ -7,7 +7,7 @@ import request from 'supertest';
 import app from '../../src/app';
 import createJWKSMock from 'mock-jwks';
 
-describe('POST /auth/login', () => {
+describe('POST /api/auth/login', () => {
     let connection: DataSource;
     let jwks: ReturnType<typeof createJWKSMock>;
 
@@ -55,7 +55,7 @@ describe('POST /auth/login', () => {
             });
 
             const response = await request(app)
-                .post('/auth/login')
+                .post('/api/auth/login')
                 .send({ email: userData.email, password: userData.password });
 
             let refreshToken: null | string = null;
@@ -69,7 +69,7 @@ describe('POST /auth/login', () => {
 
             //* Act:
             const logoutResponse = await request(app)
-                .post('/auth/logout')
+                .post('/api/auth/logout')
                 .set(
                     'Cookie',
                     `accessToken=${accessToken}; refreshToken=${refreshToken}`,

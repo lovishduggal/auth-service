@@ -7,7 +7,14 @@ import bcrypt from 'bcryptjs';
 export class UserService {
     constructor(private userRepository: Repository<User>) {}
 
-    async create({ firstName, lastName, email, password, role }: UserData) {
+    async create({
+        firstName,
+        lastName,
+        email,
+        password,
+        role,
+        tenantId,
+    }: UserData) {
         const user = await this.userRepository.findOne({
             where: { email: email },
         });
@@ -25,7 +32,8 @@ export class UserService {
                 lastName,
                 email,
                 password: hashedPassword,
-                role: role,
+                role,
+                tenant: tenantId ? { id: Number(tenantId) } : undefined,
             });
         } catch (err) {
             const error = createHttpError(
@@ -52,7 +60,12 @@ export class UserService {
     }
 
     async findById(id: number) {
-        const user = await this.userRepository.findOne({ where: { id } });
+        const user = await this.userRepository.findOne({
+            where: { id },
+            relations: {
+                tenant: true,
+            },
+        });
         return user;
     }
 
@@ -62,13 +75,14 @@ export class UserService {
 
     async update(
         userId: number,
-        { firstName, lastName, role }: LimitedUserData,
+        { firstName, lastName, role, tenantId }: LimitedUserData,
     ) {
         try {
             return await this.userRepository.update(userId, {
                 firstName,
                 lastName,
                 role,
+                tenant: tenantId ? { id: Number(tenantId) } : undefined,
             });
         } catch (err) {
             const error = createHttpError(

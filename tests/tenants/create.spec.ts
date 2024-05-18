@@ -5,7 +5,7 @@ import request from 'supertest';
 import { Tenant } from '../../src/entity/Tenant';
 import createJWKSMock from 'mock-jwks';
 import { Roles } from '../../src/constants';
-describe('POST /tenants', () => {
+describe('POST /api/tenants', () => {
     let connection: DataSource;
     let jwks: ReturnType<typeof createJWKSMock>;
     let adminToken: string;
@@ -41,7 +41,7 @@ describe('POST /tenants', () => {
             };
 
             const response = await request(app)
-                .post('/tenants')
+                .post('/api/tenants')
                 .set('Cookie', [`accessToken=${adminToken}`])
                 .send(tenantData);
 
@@ -55,7 +55,7 @@ describe('POST /tenants', () => {
             };
 
             await request(app)
-                .post('/tenants')
+                .post('/api/tenants')
                 .set('Cookie', [`accessToken=${adminToken}`])
                 .send(tenantData);
 
@@ -78,7 +78,7 @@ describe('POST /tenants', () => {
             };
 
             const response = await request(app)
-                .post('/tenants')
+                .post('/api/tenants')
                 .send(tenantData);
 
             const tenant = (await connection
@@ -103,7 +103,7 @@ describe('POST /tenants', () => {
             };
 
             const response = await request(app)
-                .post('/tenants')
+                .post('/api/tenants')
                 .set('Cookie', [`accessToken=${managerToken}`])
                 .send(tenantData);
 
