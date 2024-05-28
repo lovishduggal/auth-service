@@ -14,6 +14,7 @@ import { User } from '../entity/User';
 import createUserValidator from '../validators/create-user-validator';
 import logger from '../config/logger';
 import { UpdateUserRequest } from '../types';
+import listUsersValidator from '../validators/list-users-validator';
 
 const router = express.Router();
 const userRepository = AppDataSource.getRepository(User);
@@ -30,6 +31,7 @@ router.post(
 router.get(
     '/',
     [authenticate, canAccess([Roles.ADMIN])],
+    listUsersValidator,
     (req: Request, res: Response, next: NextFunction) =>
         userController.getAll(req, res, next) as unknown as RequestHandler,
 );
