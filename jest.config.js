@@ -14,5 +14,7 @@ module.exports = {
         'tests',
         'node_modules',
     ],
+    coverageDirectory: 'coverage',
     coverageReporters: ['text', 'html', 'lcov'],
+    testResultsProcessor: 'jest-sonar-reporter',
 };
