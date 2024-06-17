@@ -13,6 +13,7 @@ import authenticate from '../middlewares/authenticate';
 import { canAccess } from '../middlewares/canAccess';
 import { Roles } from '../constants';
 import tenantValidator from '../validators/tenant-validator';
+import listTenantsValidators from '../validators/list-tenants-validators';
 
 const router = express.Router();
 
@@ -30,6 +31,7 @@ router.post(
 
 router.get(
     '/',
+    listTenantsValidators,
     (req: Request, res: Response, next: NextFunction) =>
         tenantController.getAll(req, res, next) as unknown as RequestHandler,
 );
