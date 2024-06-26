@@ -89,7 +89,7 @@ export class UserController {
             return res.status(400).json({ errors: result.array() });
         }
 
-        const { firstName, lastName, role, tenantId } = req.body;
+        const { firstName, lastName, role, email, tenantId } = req.body;
 
         const userId = req.params.id;
 
@@ -105,10 +105,11 @@ export class UserController {
                 firstName,
                 lastName,
                 role,
+                email,
                 tenantId,
             });
             this.logger.info('User have been updated', { id: userId });
-            return res.status(200).json({ id: Number(userId) });
+            return res.status(200).json({ id: userId });
         } catch (err) {
             return next(err);
         }

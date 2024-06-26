@@ -19,16 +19,10 @@ export default checkSchema({
             errorMessage: 'Email should be a valid email',
         },
     },
-    password: {
-        errorMessage: 'Password is required',
+    tenantId: {
         notEmpty: true,
         trim: true,
-        isLength: {
-            options: {
-                min: 8,
-            },
-            errorMessage: 'Password length should be at least 8 characters',
-        },
+        errorMessage: 'Tenant id is required',
     },
 });
 //* OR

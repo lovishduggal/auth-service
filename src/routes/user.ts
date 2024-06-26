@@ -15,6 +15,7 @@ import createUserValidator from '../validators/create-user-validator';
 import logger from '../config/logger';
 import { UpdateUserRequest } from '../types';
 import listUsersValidator from '../validators/list-users-validator';
+import updateUserValidator from '../validators/update-user-validator';
 
 const router = express.Router();
 const userRepository = AppDataSource.getRepository(User);
@@ -46,6 +47,7 @@ router.get(
 router.patch(
     '/:id',
     [authenticate, canAccess([Roles.ADMIN])],
+    updateUserValidator,
     (req: UpdateUserRequest, res: Response, next: NextFunction) =>
         userController.update(req, res, next) as unknown as RequestHandler,
 );
