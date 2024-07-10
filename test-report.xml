@@ -1,46 +1,365 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\register.spec.ts">
-    <testCase name="POST /api/auth/register Given all fields should return the 201 status code" duration="487"/>
-    <testCase name="POST /api/auth/register Given all fields should return valid json response" duration="301"/>
-    <testCase name="POST /api/auth/register Given all fields should persist the user in the database" duration="322"/>
-    <testCase name="POST /api/auth/register Given all fields should return an id of the created user" duration="290"/>
-    <testCase name="POST /api/auth/register Given all fields should assign a customer role" duration="285"/>
-    <testCase name="POST /api/auth/register Given all fields should store the hashed password in the database" duration="283"/>
-    <testCase name="POST /api/auth/register Given all fields should return 400 status code if email is already exits" duration="155"/>
-    <testCase name="POST /api/auth/register Given all fields should return the access token and refresh token inside a cookie" duration="281"/>
-    <testCase name="POST /api/auth/register Given all fields should store the refresh token in the database" duration="334"/>
-    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if email field is missing" duration="67"/>
-    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if firstName field is missing" duration="64"/>
-    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if lastName field is missing" duration="67"/>
-    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if password field is missing" duration="67"/>
-    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if password length is less than 8 characters" duration="64"/>
-    <testCase name="POST /api/auth/register Fields are not in proper format should trim the email field" duration="297"/>
+    <testCase name="POST /api/auth/register Given all fields should return the 201 status code" duration="1">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should return valid json response" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should persist the user in the database" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should return an id of the created user" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should assign a customer role" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should store the hashed password in the database" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should return 400 status code if email is already exits" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should return the access token and refresh token inside a cookie" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Given all fields should store the refresh token in the database" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if email field is missing" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if firstName field is missing" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if lastName field is missing" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if password field is missing" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are missing should return 400 status code if password length is less than 8 characters" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/register Fields are not in proper format should trim the email field" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\user.spec.ts">
-    <testCase name="GET /api/auth/self Given all fields should return the 200 status code" duration="158"/>
-    <testCase name="GET /api/auth/self Given all fields should return the user data" duration="219"/>
-    <testCase name="GET /api/auth/self Given all fields should not return password field" duration="228"/>
-    <testCase name="GET /api/auth/self Given all fields should return 401 status code it token does not exit" duration="115"/>
+    <testCase name="GET /api/auth/self Given all fields should return the 200 status code" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="GET /api/auth/self Given all fields should return the user data" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="GET /api/auth/self Given all fields should not return password field" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="GET /api/auth/self Given all fields should return 401 status code it token does not exit" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\tenants\create.spec.ts">
-    <testCase name="POST /api/tenants Given all fields should return a 201 status code" duration="159"/>
-    <testCase name="POST /api/tenants Given all fields should create a tenant in the database" duration="163"/>
-    <testCase name="POST /api/tenants Given all fields should return 401 is user is not authenticated" duration="117"/>
-    <testCase name="POST /api/tenants Given all fields should return 403 if the user is not an admin" duration="119"/>
+    <testCase name="POST /api/tenants Given all fields should return a 201 status code" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/tenants Given all fields should create a tenant in the database" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/tenants Given all fields should return 401 is user is not authenticated" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/tenants Given all fields should return 403 if the user is not an admin" duration="1">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\logout.spec.ts">
-    <testCase name="POST /api/auth/login Given all fields should logout the user" duration="446"/>
+    <testCase name="POST /api/auth/login Given all fields should logout the user" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\create.spec.ts">
-    <testCase name="POST /api/users Given all fields should persist the user in the database" duration="338"/>
-    <testCase name="POST /api/users Given all fields should create a manager user" duration="307"/>
+    <testCase name="POST /api/users Given all fields should persist the user in the database" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/users Given all fields should create a manager user" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\login.spec.ts">
-    <testCase name="POST /api/auth/login Given all fields should login the user" duration="358"/>
-    <testCase name="POST /api/auth/login Given all fields should return the 400 if email or password is wrong" duration="308"/>
+    <testCase name="POST /api/auth/login Given all fields should login the user" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
+    <testCase name="POST /api/auth/login Given all fields should return the 400 if email or password is wrong" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
   <file path="C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\tests\users\refresh.spec.ts">
-    <testCase name="POST /api/auth/refresh Given all fields should return access token if refresh token is valid" duration="674"/>
+    <testCase name="POST /api/auth/refresh Given all fields should return access token if refresh token is valid" duration="0">
+      <failure message="error: database &quot;mernstack_auth_service_test&quot; does not exist"><![CDATA[error: database "mernstack_auth_service_test" does not exist
+    at Parser.parseErrorMessage (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (C:\Users\lovis\Desktop\Coding\mastering-mern\auth-service\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)]]></failure>
+    </testCase>
   </file>
 </testExecutions>

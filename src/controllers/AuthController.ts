@@ -24,7 +24,7 @@ export class AuthController {
         //* Validation:
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            return res.status(400).json({ errors: result.array() });
+            return next(createHttpError(400, 'Invalid fields'));
         }
         const { firstName, lastName, email, password } = req.body;
         this.logger.debug('New request to register a new user: ', {
@@ -84,7 +84,7 @@ export class AuthController {
         //* Validation:
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            return res.status(400).json({ errors: result.array() });
+            return next(createHttpError(400, 'Invalid fields'));
         }
         const { email, password } = req.body;
         this.logger.debug('New request to login a user: ', {
