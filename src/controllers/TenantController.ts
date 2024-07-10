@@ -19,7 +19,7 @@ export class TenantController {
         //* Validation:
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            return res.status(400).json({ errors: result.array() });
+            return next(createHttpError(400, 'Invalid fields'));
         }
 
         const { name, address } = req.body;
@@ -79,7 +79,7 @@ export class TenantController {
         //* Validation:
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            return res.status(400).json({ errors: result.array() });
+            return next(createHttpError(400, 'Invalid fields'));
         }
 
         const { name, address } = req.body;

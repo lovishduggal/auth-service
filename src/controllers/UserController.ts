@@ -18,7 +18,7 @@ export class UserController {
         const result = validationResult(req);
 
         if (!result.isEmpty()) {
-            return next(createHttpError(400, result.array()));
+            return next(createHttpError(400, 'Invalid fields'));
         }
 
         const { firstName, lastName, email, password, role, tenantId } =
@@ -86,7 +86,7 @@ export class UserController {
         // Validation
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            return res.status(400).json({ errors: result.array() });
+            return next(createHttpError(400, 'Invalid fields'));
         }
 
         const { firstName, lastName, role, email, tenantId } = req.body;
